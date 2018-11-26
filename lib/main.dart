@@ -99,26 +99,41 @@ class All extends StatefulWidget {
 }
 
 class _AllState extends State<All> {
-  var movies=["odiyan","marakkar","lucifer","randam","ittimani","big brother","a","b","c"];
+  var movies=["odiyan","marakkar","lucifer","randam"];
+  var sports=["Worldcup","la liga","IPL","ISL","Bundesliga"];
+  var events=["Sunburn","HardWell","TomorrowLand","Justin bieber"];
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
       body: new Container(
           alignment: Alignment.center,
           color:Colors.white,
-          padding: EdgeInsets.only(left:10.0,right:10.0,top: 10.0),
-          child: new GridView.count(
-              childAspectRatio: .75,
+          padding: EdgeInsets.only(left:10.0,right:10.0),
+          child: new ListView(
+            shrinkWrap: false,
+              children:<Widget>[
+            new Padding(padding: EdgeInsets.only(top: 10.0,left: 10.0),
+              child:Text("Movies",style:
+                new TextStyle(
+                  fontWeight: FontWeight.bold
+                ),)),
+
+            new GridView.count(
+              physics: ScrollPhysics(),
+              shrinkWrap: true,
+              childAspectRatio: 1.0,
+              mainAxisSpacing: 10.0,
+              crossAxisSpacing: 10.0,
               crossAxisCount: 2,
               children:
               movies.map((movie)=>new Container(
-                height: 200.0,
+                height: 1500.0,
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     new Container(
-                        height:150.0,
+                        height:100.0,
                         child: Card(
                           elevation:5.0,
                           shape: RoundedRectangleBorder(
@@ -144,6 +159,91 @@ class _AllState extends State<All> {
                 )],
               ))).toList()
       ),
+            new Padding(padding: EdgeInsets.only(top: 10.0,left: 10.0),
+                child:Text("Sports",style:
+                new TextStyle(
+                    fontWeight: FontWeight.bold
+                ),)),
+                new Container(
+                    height: 200.0,
+
+                    child:  ListView(
+                      shrinkWrap: true,
+
+                scrollDirection: Axis.horizontal,
+                children: sports.map((sports)=>
+                new Container(height: 200.0,
+                    width: 150.0,
+                    child:new Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[ new Container(
+                          height:110.0,
+
+                            child:Card(
+                      elevation:5.0,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12.0)
+                      ),
+                      child:new ClipRRect(
+                        borderRadius: BorderRadius.circular(12.0),
+                        child: Image.network("https://www.gc.ac.nz/wp-content/uploads/2018/03/sports-tools-640-417.jpg",
+                          fit: BoxFit.fill,),),)),
+                    new Text(sports,style: new TextStyle(
+                      fontWeight: FontWeight.bold
+                    ),),
+                    new Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: <Widget>[new Icon(Icons.thumb_up,color: Colors.green,),
+                    new Text("77%",style: new TextStyle(
+                        color: Colors.black
+                    ))]
+                    )])
+                ),
+
+                  ).toList(),)),
+            new Padding(padding: EdgeInsets.only(top: 10.0,left: 10.0),
+                child:Text("Events",style:
+                new TextStyle(
+                    fontWeight: FontWeight.bold
+                ),)),
+            new Container(
+                height: 200.0,
+
+                child:  ListView(
+                  shrinkWrap: true,
+
+                  scrollDirection: Axis.horizontal,
+                  children: events.map((events)=>
+                  new Container(height: 200.0,
+                      width: 150.0,
+                      child:new Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: <Widget>[ new Container(
+                              height:110.0,
+
+                              child:Card(
+                                elevation:5.0,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(12.0)
+                                ),
+                                child:new ClipRRect(
+                                  borderRadius: BorderRadius.circular(12.0),
+                                  child: Image.network("https://res.cloudinary.com/goeventz/image/fetch/c_scale/f_auto,q_auto/https%3A%2F%2Fd24oe5tmwdgz7x.cloudfront.net%2Fevent%2F56590%2Fbanner%2Fevent_1509607203.jpg",
+                                    fit: BoxFit.fill,),),)),
+                          new Text(events,style: new TextStyle(
+                              fontWeight: FontWeight.bold
+                          ),),
+                          new Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: <Widget>[new Icon(Icons.thumb_up,color: Colors.blue,),
+                              new Text("77%",style: new TextStyle(
+                                  color: Colors.black
+                              ))]
+                          )])
+                  ),
+
+                  ).toList(),))
+              ])
     ));
   }
 }
