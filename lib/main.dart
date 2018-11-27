@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'Movie.dart';
 void main() => runApp(new MaterialApp(
     debugShowCheckedModeBanner: false,
     home: MyApp(
@@ -85,7 +85,7 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
           controller: controller,
           children:[
             new All(),
-            new All(),
+            new Movie(),
             new All(),
             new All(),
           ]
