@@ -1,5 +1,10 @@
+import 'package:bmsflutter/Activities.dart';
+import 'package:bmsflutter/Plays.dart';
+import 'package:bmsflutter/Sports.dart';
 import 'package:flutter/material.dart';
 import 'Movie.dart';
+import 'package:bmsflutter/Events.dart';
+
 void main() => runApp(new MaterialApp(
     debugShowCheckedModeBanner: false,
     home: MyApp(
@@ -10,8 +15,8 @@ class MyApp extends StatefulWidget {
   _MyAppState createState() => _MyAppState();
 }
 
-class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
-  TabController controller;
+class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
+  TabController controller,controller2;
   var color;
   static var actionslist=["All","Movies","Events","Plays","Sports","Activities"];
   var bodylist=[Colors.grey,Colors.green,Colors.blue,Colors.black,Colors.red,Colors.pink];
@@ -23,6 +28,7 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
     color=bodylist[0];
     super.initState();
     controller=new TabController(length: actionslist.length, vsync: this);
+    controller2=new TabController(length: actionslist.length, vsync: this);
     controller.addListener(listener);
 
   }
@@ -69,7 +75,7 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
         color: Colors.white24,
         child:
       new TabBar(
-        controller: controller,
+        controller: controller2,
           indicatorColor: Colors.transparent,
           labelColor: Colors.red,
           unselectedLabelColor: Colors.grey,
@@ -86,8 +92,10 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
           children:[
             new All(),
             new Movie(),
-            new All(),
-            new All(),
+            new Events(),
+            new Plays(),
+            new Sports(),
+            new Activities(),
           ]
       ),
     );
@@ -108,7 +116,6 @@ class _AllState extends State<All> {
       body: new Container(
           alignment: Alignment.center,
           color:Colors.white,
-          padding: EdgeInsets.only(left:10.0,right:10.0),
           child: new ListView(
             shrinkWrap: false,
               children:<Widget>[
