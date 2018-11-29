@@ -4,7 +4,7 @@ import 'package:bmsflutter/Sports.dart';
 import 'package:flutter/material.dart';
 import 'Movie.dart';
 import 'package:bmsflutter/Events.dart';
-
+import 'package:bmsflutter/Search.dart';
 void main() => runApp(new MaterialApp(
     debugShowCheckedModeBanner: false,
     home: MyApp(
@@ -81,7 +81,7 @@ class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
           unselectedLabelColor: Colors.grey,
 
           tabs: [ new Icon(Icons.home),
-            new Icon(Icons.search),
+            new IconButton(icon:new Icon( Icons.search), onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>new Search()));}),
             new Icon(Icons.headset),
             new Icon(Icons.trending_up),
 
