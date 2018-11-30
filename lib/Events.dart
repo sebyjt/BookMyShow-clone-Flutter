@@ -89,7 +89,7 @@ class _EventsState extends State<Events> {
               elevation: 1.0,
               child: new Column(
                 children: <Widget>[
-                  new Image.network("http://aroundmangalore.com/wp-content/uploads/2016/11/Sunburn-Reloaded-26-Nov-2016-River-Dale-Mangalore.jpg"),
+                  new Image.network("http://d3us2i0tqwa7m7.cloudfront.net/pulses/15607236902710000/1449912369060_res_original.jpg"),
                   new SizedBox(height:10.0 ,),
                   new Row(
                     children: <Widget>[

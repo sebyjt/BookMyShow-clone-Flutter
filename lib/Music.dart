@@ -1,3 +1,5 @@
+import 'package:bmsflutter/Library.dart';
+import 'package:bmsflutter/MusicTab.dart';
 import 'package:bmsflutter/My.dart';
 import 'package:flutter/material.dart';
 class Music extends StatefulWidget {
@@ -56,7 +58,12 @@ class _MusicState extends State<Music> with SingleTickerProviderStateMixin {
       body: new TabBarView(
           controller: controller,
           children: [
-            new  My()
+            new  My(),
+            new MusicTab(),
+            new MusicTab(),
+            new Library()
+
+
           ]
       ),
     );

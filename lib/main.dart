@@ -64,7 +64,8 @@ class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
           children:[
             new Home(),
             new Home(),
-            new Music()
+            new Music(),
+
 
           ]
       ),

@@ -96,9 +96,10 @@ class _AllState extends State<All> {
                         showIndicator: true,
                     indicatorBgPadding: 5.0,
                     dotBgColor: Colors.transparent,
+                    dotSize: 5.0,
                     boxFit: BoxFit.fill,
                     images: [
-                      new NetworkImage('https://i.ytimg.com/vi/STT0mj6gWx8/maxresdefault.jpg',),
+                      new NetworkImage('https://i.ytimg.com/vi/STT0mj6gWx8/maxresdefault.jpg'),
                       new NetworkImage('https://akm-img-a-in.tosshub.com/indiatoday/images/story/201809/thugs_1.png?DogNBbhFrmsnqcw_Tuz2QOvKec19HLXK'),
                       new NetworkImage('https://www.forces.net/sites/default/files/styles/cover_image/public/Bohemian%204.jpg?itok=Ql8R9X6l')
                     ],
