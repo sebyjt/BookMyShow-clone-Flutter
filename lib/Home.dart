@@ -4,6 +4,7 @@ import 'package:bmsflutter/Sports.dart';
 import 'package:flutter/material.dart';
 import 'Movie.dart';
 import 'package:bmsflutter/Events.dart';
+import 'package:carousel_pro/carousel_pro.dart';
 import 'package:bmsflutter/Search.dart';
 
 class Home extends StatefulWidget {
@@ -58,7 +59,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       body: new TabBarView(
           controller: controller,
           children:[
-            new All(),
+            new All(controller),
             new Movie(),
             new Events(),
             new Plays(),
@@ -70,6 +71,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   }
 }
 class All extends StatefulWidget {
+  TabController controller;
+  All(this.controller);
   @override
   _AllState createState() => _AllState();
 }
@@ -87,11 +90,34 @@ class _AllState extends State<All> {
             child: new ListView(
                 shrinkWrap: false,
                 children:<Widget>[
-                  new Padding(padding: EdgeInsets.only(top: 10.0,left: 10.0),
-                      child:Text("Movies",style:
+                  new Container(
+                    height: 200.0,
+                      child:  Carousel(
+                        showIndicator: true,
+                    indicatorBgPadding: 5.0,
+                    dotBgColor: Colors.transparent,
+                    boxFit: BoxFit.fill,
+                    images: [
+                      new NetworkImage('https://i.ytimg.com/vi/STT0mj6gWx8/maxresdefault.jpg',),
+                      new NetworkImage('https://akm-img-a-in.tosshub.com/indiatoday/images/story/201809/thugs_1.png?DogNBbhFrmsnqcw_Tuz2QOvKec19HLXK'),
+                      new NetworkImage('https://www.forces.net/sites/default/files/styles/cover_image/public/Bohemian%204.jpg?itok=Ql8R9X6l')
+                    ],
+
+                  )),
+                  new Padding(padding: EdgeInsets.only(top: 10.0,left: 10.0,right: 10.0),
+                      child:new Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children:<Widget>[Text("Movies",style:
                       new TextStyle(
                           fontWeight: FontWeight.bold
-                      ),)),
+                      ),),
+                      new GestureDetector(
+                        onTap: (){
+                          widget.controller.animateTo(1);
+                        },
+                          child:  Text("more",style: new TextStyle(
+                        color: Colors.blue
+                      ),))])),
 
                   new GridView.count(
                       physics: ScrollPhysics(),
@@ -134,11 +160,18 @@ class _AllState extends State<All> {
                               )],
                           ))).toList()
                   ),
-                  new Padding(padding: EdgeInsets.only(top: 10.0,left: 10.0),
-                      child:Text("Sports",style:
-                      new TextStyle(
-                          fontWeight: FontWeight.bold
-                      ),)),
+                  new Padding(padding: EdgeInsets.only(top: 10.0,left: 10.0,right: 10.0),
+                      child:new Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children:<Widget>[Text("Sports",style:
+                          new TextStyle(
+                              fontWeight: FontWeight.bold
+                          ),),
+                          new GestureDetector(
+                              onTap: (){widget.controller.animateTo(4);},
+                              child:  Text("more",style: new TextStyle(
+                                  color: Colors.blue
+                              ),))])),
                   new Container(
                       height: 200.0,
 
@@ -176,11 +209,18 @@ class _AllState extends State<All> {
                         ),
 
                         ).toList(),)),
-                  new Padding(padding: EdgeInsets.only(top: 10.0,left: 10.0),
-                      child:Text("Events",style:
-                      new TextStyle(
-                          fontWeight: FontWeight.bold
-                      ),)),
+                  new Padding(padding: EdgeInsets.only(top: 10.0,left: 10.0,right: 10.0),
+                      child:new Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children:<Widget>[Text("Events",style:
+                          new TextStyle(
+                              fontWeight: FontWeight.bold
+                          ),),
+                          new GestureDetector(
+                              onTap: (){widget.controller.animateTo(2);},
+                              child:  Text("more",style: new TextStyle(
+                                  color: Colors.blue
+                              ),))])),
                   new Container(
                       height: 200.0,
 
