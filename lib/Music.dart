@@ -31,6 +31,7 @@ class _MusicState extends State<Music> with SingleTickerProviderStateMixin {
     return new Scaffold(
       resizeToAvoidBottomPadding: false,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: const Color(0xFF2E3336),
         titleSpacing: 0.0,
         actions: <Widget>[

@@ -36,6 +36,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
 
     return new Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor:const Color(0xFF2E3336),
         titleSpacing: 0.0,
         title: TabBar(
