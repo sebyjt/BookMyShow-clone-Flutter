@@ -50,8 +50,9 @@ class _MyState extends State<My> {
                   new Padding(
                       padding: EdgeInsets.only(left: 15.0, right: 15.0),
                       child: Card(
-                        child: new Image.network(
-                            "https://static.webshopapp.com/shops/094126/files/143596814/david-garrett-music-album-cd.jpg"),
+                        child: new ClipRRect(
+                          borderRadius: BorderRadius.circular(15.0), child:new Image.network(
+                            "https://static.webshopapp.com/shops/094126/files/143596814/david-garrett-music-album-cd.jpg")),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15.0)),
                       )),
@@ -59,8 +60,9 @@ class _MyState extends State<My> {
                       padding:
                       EdgeInsets.only(left: 10.0, right: 10.0, top: 10.0),
                       child: Card(
-                        child: new Image.network(
-                            "http://s3.amazonaws.com/NRNArt/Michael-Buble--To-Be-Loved-album-cover.jpg"),
+                        child: new ClipRRect(
+                          borderRadius: BorderRadius.circular(15.0),child: new Image.network(
+                            "http://s3.amazonaws.com/NRNArt/Michael-Buble--To-Be-Loved-album-cover.jpg")),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15.0)),
                       )),
